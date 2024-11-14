@@ -1,6 +1,6 @@
 <?php 
 include("header.php");
-
+// $select = "SELECT * FROM `products`";
 $select = "SELECT `product_id`, `product_name`, `product_price`, `product_model`, `product_specification`, `product_image`, `category_name`, `brand_name`
 FROM `products`
 INNER JOIN `categories`
@@ -48,8 +48,8 @@ $query = mysqli_query($connect, $select);
                                         <td> <img src="product_images/<?php echo $fetch['product_image'] ?> " alt="" width="100px"></td>
                                         <td> <?php echo $fetch['category_name'] ?> </td>
                                         <td> <?php echo $fetch['brand_name'] ?> </td>
-                                        <td> <a href="" class="btn btn-warning">Edit</a> </td>
-                                        <td> <a href="" class="btn btn-danger">Delete</a> </td>
+                                        <td> <a href="editProduct.php?u_id=<?php echo $fetch['product_id'] ?>" class="btn btn-warning">Edit</a> </td>
+                                        <td> <a href="editProduct.php?d_id=<?php echo $fetch['product_id'] ?>" class="btn btn-danger">Delete</a> </td>   
                                     </tr>
                               <?php  } ?>
                                 </tbody>
