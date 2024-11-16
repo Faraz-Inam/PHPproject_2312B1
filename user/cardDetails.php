@@ -7,11 +7,9 @@ $sel = "SELECT * FROM `products` WHERE product_id = '$p_id'";
 $query = mysqli_query($connect,$sel);
 ?>
 
-
-
     <!-- About Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
+    <div class="container-xxl py-5 mt-5">
+        <div class="container mt-5">
             <div class="row g-5 align-items-center">
               <?php  $fetch = mysqli_fetch_assoc($query) ?>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
@@ -32,7 +30,6 @@ $query = mysqli_query($connect,$sel);
         </div>
     </div>
     <!-- About End -->
-
 
 
     <?php 

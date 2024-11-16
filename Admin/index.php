@@ -1,5 +1,17 @@
      <?php 
      include("header.php");
+     $c_select = "SELECT COUNT(*) AS c FROM categories";
+     $c_query = mysqli_query($connect, $c_select);
+     $c_count = mysqli_fetch_assoc($c_query);
+
+     $b_select = "SELECT COUNT(*) AS b FROM brands";
+     $b_query = mysqli_query($connect, $b_select);
+     $b_count = mysqli_fetch_assoc($b_query);
+
+     $p_select = "SELECT COUNT(*) AS p FROM products";
+     $p_query = mysqli_query($connect, $p_select);
+     $p_count = mysqli_fetch_assoc($p_query);
+
      ?>
      
      <!-- Sale & Revenue Start -->
@@ -7,10 +19,10 @@
                 <div class="row g-4">
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-line fa-3x text-primary"></i>
+                            <i class="fa fa-truck fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Today Sale</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Total Order</p>
+                                <h6 class="mb-0">1234</h6>
                             </div>
                         </div>
                     </div>
@@ -18,8 +30,8 @@
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-bar fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Total Sale</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Product Count</p>
+                                <h6 class="mb-0"><?php echo $p_count['p'] ?></h6>
                             </div>
                         </div>
                     </div>
@@ -27,8 +39,8 @@
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-area fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Today Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Category Count</p>
+                                <h6 class="mb-0"><?php echo $c_count['c'] ?></h6>
                             </div>
                         </div>
                     </div>
@@ -36,8 +48,8 @@
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-pie fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Total Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Brand Count</p>
+                                <h6 class="mb-0"><?php echo $b_count['b'] ?></h6>
                             </div>
                         </div>
                     </div>
