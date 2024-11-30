@@ -1,3 +1,16 @@
+<?php 
+include 'connection.php';
+session_start();
+
+if(!isset($_SESSION['user'])){
+    header("location: ../signin.php");
+}
+
+if($_SESSION['role_id'] == 1){
+    header("location: ../Admin/index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +56,7 @@
     <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="top-bar row gx-0 align-items-center d-none d-lg-flex">
             <div class="col-lg-6 px-5 text-start">
-                <small><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</small>
+                <small><i class="fa fa-map-marker-alt me-2"></i><?php echo "Welcome " . "<b style='letter-spacing: 3px;'>" . $_SESSION['user'] . "</b>" ?></small>
                 <small class="ms-4"><i class="fa fa-envelope me-2"></i>info@example.com</small>
             </div>
             <div class="col-lg-6 px-5 text-end">
@@ -83,10 +96,10 @@
                         <small class="fa fa-search text-body"></small>
                     </a>
                     <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
-                        <small class="fa fa-user text-body"></small>
-                    </a>
-                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
                         <small class="fa fa-shopping-bag text-body"></small>
+                    </a>
+                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="../logout.php">
+                        <small class="fa fa-user text-body"></small>
                     </a>
                 </div>
             </div>

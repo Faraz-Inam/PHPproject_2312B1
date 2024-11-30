@@ -1,5 +1,14 @@
 <?php
 $connect = mysqli_connect("localhost", "root", "", "2312b1project");
+session_start();
+
+if(!isset($_SESSION['user'])){
+    header("location: ../signin.php");
+}
+
+if($_SESSION['role_id'] == 2){
+    header("location: ../user/index.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +67,7 @@ $connect = mysqli_connect("localhost", "root", "", "2312b1project");
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">Jhon Doe</h6>
+                        <h6 class="mb-0"> <?php echo $_SESSION['user'] ?></h6>
                         <span>Admin</span>
                     </div>
                 </div>
@@ -188,12 +197,12 @@ $connect = mysqli_connect("localhost", "root", "", "2312b1project");
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                            <span class="d-none d-lg-inline-flex"> <?php echo "Welcome " . $_SESSION['user'] ?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="../logout.php" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>

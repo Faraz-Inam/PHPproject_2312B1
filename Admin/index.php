@@ -19,7 +19,7 @@
                 <div class="row g-4">
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-truck fa-3x text-primary"></i>
+                            <i class="fa fa-truck fa-3x text-secondary"></i>
                             <div class="ms-3">
                                 <p class="mb-2">Total Order</p>
                                 <h6 class="mb-0">1234</h6>
@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                            <i class="fa fa-chart-bar fa-3x text-warning"></i>
                             <div class="ms-3">
                                 <p class="mb-2">Product Count</p>
                                 <h6 class="mb-0"><?php echo $p_count['p'] ?></h6>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <i class="fa fa-chart-area fa-3x text-danger"></i>
                             <div class="ms-3">
                                 <p class="mb-2">Category Count</p>
                                 <h6 class="mb-0"><?php echo $c_count['c'] ?></h6>
@@ -46,7 +46,7 @@
                     </div>
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                            <i class="fa fa-chart-line fa-3x text-success"></i>
                             <div class="ms-3">
                                 <p class="mb-2">Brand Count</p>
                                 <h6 class="mb-0"><?php echo $b_count['b'] ?></h6>
