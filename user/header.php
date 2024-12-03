@@ -9,6 +9,10 @@ if(!isset($_SESSION['user'])){
 if($_SESSION['role_id'] == 1){
     header("location: ../Admin/index.php");
 }
+
+$sel_cat = "SELECT * FROM categories";
+$cat_q = mysqli_query($connect, $sel_cat);
+
 ?>
 
 <!DOCTYPE html>
@@ -83,10 +87,9 @@ if($_SESSION['role_id'] == 1){
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Categories</a>
                         <div class="dropdown-menu m-0">
-                            <a href="mobiles.php" class="dropdown-item">Mobiles</a>
-                            <a href="laptops.php" class="dropdown-item">Laptops</a>
-                            <a href="computers.php" class="dropdown-item">Computer</a>
-                            <a href="404.html" class="dropdown-item">others</a>
+                       <?php while($fetch_cat = mysqli_fetch_assoc($cat_q)){ ?>
+                        <a href="categories.php?cat_id=<?php echo $fetch_cat['category_id'] ?>" class="dropdown-item"><?php echo $fetch_cat['category_name'] ?></a>
+                   <?php } ?>
                         </div>
                     </div>
                     <a href="contact.html" class="nav-item nav-link">Contact Us</a>
