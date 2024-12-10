@@ -33,7 +33,7 @@ $query = mysqli_query($connect,$sel);
                         <input type="number" name="quantity" min="1" max="10" value="1">
                     </p>
                     <input type="hidden" name="product_id" value="<?php echo $fetch['product_id']; ?>">
-                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="">Buy Now</a>
+                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="mail.php?p_id=<?php echo $fetch['product_id']?>">Buy Now</a>
                     <button type="submit" name="add_to_cart" class="btn btn-warning rounded-pill py-3 px-5 mt-3">Add to Cart</button>
                 </form>
                 </div>
