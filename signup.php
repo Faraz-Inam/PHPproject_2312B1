@@ -42,17 +42,27 @@ if(isset($_POST['signupBtn'])){
     $uname = $_POST['uname'];
     $email = $_POST['email'];
     $pass = $_POST['pass'];
+    $encryptPass = password_hash($pass, PASSWORD_BCRYPT);
     $role_id = 2;
 
-    $insert = "INSERT INTO `users` (`firstname`, `lastname`, `gender`, `date_of_birth`, `username`, `email`, `password`, `role_id`)
-    VALUES ('$fname', '$lname', '$gender', '$dob', '$uname', '$email', '$pass', '$role_id')";
-    $q = mysqli_query($connect, $insert);
+    $sel = "SELECT * FROM users WHERE username = '$uname'";
+    $q = mysqli_query($connect, $sel);
+    $row_count = mysqli_num_rows($q);
+    if($row_count > 0){ ?>
+    <div>UserName already exist</div>
+    <?php }
+    else{
+        $insert = "INSERT INTO `users` (`firstname`, `lastname`, `gender`, `date_of_birth`, `username`, `email`, `password`, `role_id`)
+        VALUES ('$fname', '$lname', '$gender', '$dob', '$uname', '$email', '$encryptPass', '$role_id')";
+        $q = mysqli_query($connect, $insert);
+    
+        if($q){
+            echo "<script>
+            alert('account created');
+            window.location.href = 'signin.php';
+            </script>";
+        }
 
-    if($q){
-        echo "<script>
-        alert('account created');
-        window.location.href = 'signin.php';
-        </script>";
     }
 }
 ?>

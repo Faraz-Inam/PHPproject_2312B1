@@ -10,15 +10,18 @@ if(isset($_POST['signinBtn'])){
     $uname = $_POST['uname'];
     $pass = $_POST['pass'];
 
-   $verify =  "SELECT * FROM users WHERE username = '$uname' AND password = '$pass'";
+   $verify =  "SELECT * FROM users WHERE username = '$uname'";
    $q = mysqli_query($connect, $verify);
    $row_count = mysqli_num_rows($q);
    $fetch = mysqli_fetch_assoc($q);
+   $enccryptPass = $fetch['password'];
 
 //    echo $row_count;
+if(password_verify($pass, $enccryptPass)){
 if($row_count == 1){
     $_SESSION['user'] = $fetch['username'];
     $_SESSION['role_id'] = $fetch['role_id'];
+    $_SESSION['email'] = $fetch['email'];
 
     if($fetch['role_id'] == 1){
         header("location: Admin/index.php");
@@ -26,6 +29,7 @@ if($row_count == 1){
     else{
         header("location: User/index.php");
     }
+}
 }
 
 }

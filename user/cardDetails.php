@@ -23,25 +23,15 @@ $query = mysqli_query($connect,$sel);
                     <p><i class="fa fa-th-large text-primary me-3"></i>Price: <?php echo $fetch['product_price']?></p>
                     <p><i class="fa fa-undo text-primary me-3"></i>Model: <?php echo $fetch['product_model']?></p>
                     <p><i class="fa fa-unlink text-primary me-3"></i>Specification: <?php echo $fetch['product_specification']?></p>
-                    <!-- <p><i class="fa fa-unlink text-primary me-3"></i>Quantity: <input type="number" name="" id="" min="1" max="10" value="1"></p>
-                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="">Buy Now</a>
-                    <a class="btn btn-warning rounded-pill py-3 px-5 mt-3" href="">Add to Cart</a> -->
-
-                     <!-- Add to Cart Form -->
-                <form method="post" action="add_to_cart.php">
-                    <p><i class="fa fa-unlink text-primary me-3"></i>Quantity: 
-                        <input type="number" name="quantity" min="1" max="10" value="1">
-                    </p>
-                    <input type="hidden" name="product_id" value="<?php echo $fetch['product_id']; ?>">
                     <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="mail.php?p_id=<?php echo $fetch['product_id']?>">Buy Now</a>
-                    <button type="submit" name="add_to_cart" class="btn btn-warning rounded-pill py-3 px-5 mt-3">Add to Cart</button>
-                </form>
+                    <a class="btn btn-warning rounded-pill py-3 px-5 mt-3" href="">Add to Cart</a>
                 </div>
             </div>
         </div>
     </div>
     <!-- About End -->
 
-<?php 
+
+    <?php 
 include("footer.php");
 ?>

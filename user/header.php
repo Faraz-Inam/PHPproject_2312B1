@@ -98,7 +98,7 @@ $cat_q = mysqli_query($connect, $sel_cat);
                     <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
                         <small class="fa fa-search text-body"></small>
                     </a>
-                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="cart.php">
+                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
                         <small class="fa fa-shopping-bag text-body"></small>
                     </a>
                     <a class="btn-sm-square bg-white rounded-circle ms-3" href="../logout.php">
