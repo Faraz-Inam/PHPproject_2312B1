@@ -13,6 +13,8 @@ if($_SESSION['role_id'] == 1){
 $sel_cat = "SELECT * FROM categories";
 $cat_q = mysqli_query($connect, $sel_cat);
 
+$currentPage = basename($_SERVER['PHP_SELF']);  // to get current page 
+
 ?>
 
 <!DOCTYPE html>
@@ -81,18 +83,18 @@ $cat_q = mysqli_query($connect, $sel_cat);
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About Us</a>
-                    <a href="product.php" class="nav-item nav-link">Products</a>
+                    <a href="index.php" class="nav-item nav-link <?php echo $currentPage == 'index.php' ? 'active' : ''; ?>">Home</a>
+                    <a href="about.php" class="nav-item nav-link  <?php echo $currentPage == 'about.php' ? 'active' : ''; ?>">About Us</a>
+                    <a href="product.php" class="nav-item nav-link  <?php echo $currentPage == 'product.php' ? 'active' : ''; ?>">Products</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Categories</a>
+                        <a href="#" class="nav-link dropdown-toggle  <?php echo $currentPage == 'category.php' ? 'active' : ''; ?>" data-bs-toggle="dropdown">Categories</a>
                         <div class="dropdown-menu m-0">
                        <?php while($fetch_cat = mysqli_fetch_assoc($cat_q)){ ?>
                         <a href="categories.php?cat_id=<?php echo $fetch_cat['category_id'] ?>" class="dropdown-item"><?php echo $fetch_cat['category_name'] ?></a>
                    <?php } ?>
                         </div>
                     </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                    <a href="contact.php" class="nav-item nav-link  <?php echo $currentPage == 'contact.php' ? 'active' : ''; ?>">Contact Us</a>
                 </div>
                 <div class="d-none d-lg-flex ms-2">
                     <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
